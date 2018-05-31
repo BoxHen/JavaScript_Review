@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Review</title>
+  </head>
+  <body id="body" onload="showDate()">
+    <div class="header">
+      <h1 id="heading" >Review</h1>
+      <p>with Henry</p>
+    </div>
+
+    <div class="container">
+      <button onclick="doClick()" type="button" name="button">alert</button>
+      <button onclick="changeText()" type="button" name="button">change text</button>
+      <button onclick="showDate()" type="button" name="button">show date</button>
+      <button onmouseout="clearDate();" onmouseover="showDate()" type="button" name="button">mouse over date</button>
+      <h1 id="time" ></h1>
+    </div>
+
+    <form class="" action="index.html" method="post" name="myform" onsubmit="return validateForm()">
+      <div class="">
+        <label for="">First Name</label>
+        <input type="text" name="firstname" id="firstname" value="">
+      </div> <br>
+
+      <div class="">
+        <label for="">Last Name</label>
+        <input type="text" name="lastname" id="lastname" value="">
+      </div> <br>
+
+      <div class="">
+        <label for="">Background</label>
+        <select class="" name="background" id="background" onchange="changeBackground(this)">
+          <option value="red">red</option>
+          <option value="blue">blue</option>
+          <option value="green">green</option>
+        </select>
+      </div> <br>
+
+      <input type="submit" name="" value="submit">
+    </form>
+
+    <script type="text/javascript">
+      function doClick(){
+        alert('you clicked');
+      }
+      function changeText(){
+        var heading = document.getElementById('heading');
+        heading.innerHTML = 'text changed';
+      }
+      function showDate(){
+        document.getElementById('time');
+        time.innerHTML = Date();
+      }
+      function clearDate(){
+        document.getElementById('time');
+        time.innerHTML = '';
+      }
+      function changeBackground(option){
+        var body = document.getElementById('body');
+        body.style.backgroundColor = option.value;
+      }
+      function validateForm(){
+        var firstname = document.forms["myform"]["firstname"].value;
+        if (firstname == null || firstname == ""){
+          alert("First Name is required");
+          return false;
+        }
+        if (firstname.length <= 3){
+          alert("First Name must be at least 3 characters long");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
+<!--
+Creating objects:
+  var person = {
+    firstname : 'Henry',
+    lastname  : 'Chen',
+    age       : 21
+  }
+
+  var apple = new Object();
+  apple.color = 'red';
+  apple.shape = 'round';
+  apple.describe = function(){
+    return 'Apple is '+ this.color;
+  }
+
+constructor pattern:
+  function Fruit(name, color, shape){
+      this.name = name;
+      this.color = color;
+      this. shape = shape;
+  }
+  var apple = new Fruit('apple, red, round');
+
+events:
+  such as onclick, mouse over, onload, etc
+
+
+-->
