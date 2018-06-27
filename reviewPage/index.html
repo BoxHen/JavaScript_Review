@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <h1>JavaScript</h1>
+      </div>
+    </header>
+
+      <nav id="navbar">
+        <div class="container">
+          <ul>
+            <li> <a href="#">Home</a> </li>
+            <li> <a href="#">About</a> </li>
+            <li> <a href="#">Services</a> </li>
+            <li> <a href="#">Contact</a> </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section id="showcase">
+        <div class="container">
+          <h1>Notes</h1>
+        </div>
+      </section>
+
+      <div class="container">
+
+        <section id="main">
+          <h1>Welcome</h1>
+          <p>
+            <ul>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="ObjectLiteralJump"></a>
+                Object Literals: <br>
+                    <ol>
+                      <li>note: start using "let" and "const" over var. With const you are defining a constant with no reassign while you can reassign with let <br></li>
+                      <!-- ___________________________________________________ -->
+                      <li>object literal syntax is the curly brace, {} </li>
+                      <!-- ___________________________________________________ -->
+                      <li>objects in JS is a collection of key value pairs </li>
+                        <ul>
+                          <li>example: <br>
+                            const circle = { <br>
+                              <div class="indent">
+                                radius:1, <br>
+                                location: { <br>
+                                  <div class="indent">
+                                    x:1, <br>
+                                    y:1, <br>
+                                  </div>
+                                }, <br>
+                                draw: function(){ <br>
+                                  <div class="indent">
+                                    console.log('draw'); <br>
+                                  </div>
+                                } <br>
+                              </div>
+                          }</li>
+                        </ul>
+                        <!-- ___________________________________________________ -->
+                        <li>members are the radius, location, and draw. radius and location are properties and draw is a method or function</li>
+                          <ul>
+                            <li>properties are used to hold values while methods define some logic </li>
+                            <li>we can use dot operator to access the members</li>
+                          </ul>
+                    </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="FactoryJump"></a>
+                Factory Function vs Constructor: <br>
+              		<ol>
+                    <li>Object literal syntax is not a good way to create a object and duplicate it if the object has at least one method</li>
+                      <ul>
+                        <li>instead lets use a Factory function or Constructor</li>
+                      </ul>
+                    <li>if object has one or more methods we say it has behavior </li>
+                    <li> Factory Function example: <ul><img src="images/factoryFunction.PNG" alt="factoryFunctionExample"></ul> </li>
+                    <!-- ___________________________________________________ -->
+                    <li> Constructor example:
+                      <ul><img src="images/constructor.PNG" alt="ConstructorExample">
+                        <li>uses the "this" keyword to set the properties of this object</li>
+                        <li>"this" refers to the object that is executing this piece of code</li>
+                        <li>"this" is used with the "new" operator and "new" creates an empty object. Then "this" points to that new object </li>
+                          <ul>
+                            <li>by default, "this" points to the global object. In a browser, this would be the window object</li>
+                            <li>this is why it is important to not forget the "new" keyword because we want it to point to the object created</li>
+                            <li>Not doing so may lead to bugs and values being changed unintentionally</li>
+                            <li>using the "new" operator does three things: create an empty object, sets "this" to point to that object, and return that object from the contructor function (the return happens implicitly)</li>
+                          </ul>
+                      </ul>
+                    </li>
+                    <!-- ___________________________________________________ -->
+                    <li>Which approach should you use?</li>
+                      <ul>
+                        <li>programmers fro m C# or Java may prefer the constructor syntax since it looks like it is creating an instance of a a class</li>
+                        <li>On the other hand, other programmers prefer the factory function since if we forgeet the "new" operator, we will make errors</li>
+                        <li>choose the pattern YOU prefer</li>
+                      </ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="Built-inJump"></a>
+                Built in Constructors: <br>
+                  <ol>
+                    <li>Every object in JS has a property called constructor and that references the function that was used to contruct or create that object</li>
+                    <li>when we create objects using the factory or contructor function, its contructor will be the factory or contrutor we specified</li>
+                    <li>When we create a object using object literal syntax JS engine will translate it like this </li>
+                      <ul>
+                        <li>example: let x = {} //let x = new Object();</li>
+                      </ul>
+                    <li>there are a few other built in contructors:</li>
+                      <ul>
+                        <li>new String(); but we use, more often, the '', "", or ``</li>
+                          <ul>
+                            <li>these literals are cleaner and simpler than using the contructor</li>
+                          </ul>
+                        <li>new Boolena();  (true / false)</li>
+                        <li>new Number();  (1, 2, 3...)</li>
+                      </ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="HTMLJump"></a>
+                Functions are Objects: <br>
+              		<ol>
+                    <li>in JavaScript, functions are objects</li>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="Value-RefJump"></a>
+                Values vs Reference types: <br>
+                  <ol>
+                    <li>Value Types: Number, String, Boolean, Symbol, undefined, null</li>
+                    <li>Reference Types: Object, Function, Array</li>
+                    <li>Primitives:</li>
+                      <ul>
+                        <li>let x = 10;</li>
+                        <li>let y = x;</li>
+                        <li> lets now say x = 20</li>
+                        <li>x and y are independent of each other, so if we look at there values, x = 20 but y = 10 (we copy their values)</li>
+                      </ul>
+                    <li>Reference types:</li>
+                      <ul>
+                        <li>let x = { value: 10 };</li>
+                        <li>let y = x;</li>
+                        <li>x.value = 20;</li>
+                        <li>Here, x = 20 and y =20</li>
+                        <li>the take away is, when we use an object, that object is not stored in that variable but somewhere else in memory
+                            and the memory address is stored in the variable. So when we copy, x into y, we copy the address over. Therefore,
+                            both x and y are pointing to same object in memory. Any changes to the object using x or y, the changes are
+                            immediately visible to the other variable
+                        </li>
+                      </ul>
+                    <li>primitves are copied by value but reference types (objects) are copied by address</li>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="PropertiesJump"></a>
+                <u><strong>Adding/Removing Properties:</strong> </u>
+              		<ol>
+                    <li>Objects in JS are dynamic. This is useful for adding things on the fly. Useful for mobile or web applications where
+                        it may send a user object to the server. On the server we get this user object and we can add additional stuff to it
+                        like tokens. In games, this can be currency.</li>
+                    <li>Because we don't have classes we don't need to define these properties ahead of time and we can add them whenever we
+                        want. This makes JS powerful. In C# or Java, we would need to go back and change the classes.</li>
+                    <li>examples:</li>
+                      <ul>
+                        <li>circle.location    = {x:1};</li>
+                        <li>circle['location'] = {x:1}; note: these two are the same, with the latter being bracket notation</li>
+                        <li>bracket notation useful when property names are not valid identifiers such as "center-location"</li>
+                      </ul>
+                    <li>To delete properties use the delete operator</li>
+                      <ul>
+                        <li>example: delete circle.location;</li>
+                      </ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="EnumJump"></a>
+                Enumerating Properties: <br>
+              		<ol>
+                    <li>to enumerate all the members of an object, we can use a for in loop to get all the keys </li>
+                    <li>to check for the existance of a property or a method in an object use the in operator</li>
+                      <ul><img src="images/Enum.PNG" alt="EnumeratingProperties"></ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= --> <hr>
+              <li> <a id="AbstractionJump"></a>
+                Abstraction <br>
+		              <ol>
+                    <li>this means to hide the details and complexities and show/expose only essentials. This done so clients or specific methods don't get messed up </li>
+                    <li>Instead of setting properties in the object, we can use let. This is temporary and will be out of scope when we exit the function.</li>
+                      <ul>
+                        <li>this works because of closure in JS</li>
+                        <li>Closure determines what variables will be accessible to an inner function</li>
+                        <li> Closure vs Scope</li>
+                          <ul>
+                            <li>closure determines what variables will be accessible to an inner function</li>
+                            <li>scope is temporary but closure stays</li>
+                            <li>reference: https://robertnyman.com/2008/10/09/explaining-javascript-scope-and-closures/</li>
+                          </ul>
+                      </ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="GetterJump"></a>
+                Getters/Setters: <br>
+                  <ol>
+                    <li>we can use defineProperties or defineProperty</li>
+                    <li>benefits of a setter is we can perform a validation</li>
+                    <ul>
+                      <img src="images/getterSetter.PNG" alt="getterSetter"> 
+                    </ul>
+                  </ol>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="ComparisonJump"></a>
+                comparison operator <br>
+              		<span class="indent">!=, ==, <, >, <=, >=</span> <br>
+              		<span class="indent"><> is same as !=</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="ArithmaticJump"></a>
+                arithmetic operators: <br>
+		                 <span class="indent">same concept as other lang (+, -, /, *, %)</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="LogicalJump"></a>
+                Logical operator: <br>
+              		<span class="indent">&& or AND</span> <br>
+              		<span class="indent">|| or OR</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="TripleJump"></a>
+                Triple equals: same as == but compares data type as well
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="WhileJump"></a>
+                while loop: same as other lang <br>
+		                <span class="indent">while(){}</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="DoWhileJump"></a>
+                do while loop: <br>
+              		<span class="indent">do{</span> <br>
+              			<span class="indent1">//executes this first and at least once</span> <br>
+              		<span class="indent">}while()</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="ForJump"></a>
+                for loop: same as other lang <br>
+		                 <span class="indent">for(i = 0; i <= 10; i++){}</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="SwitchJump"></a>
+                switch statement: <br>
+              		<span class="indent">switch(case){   </span> <br>
+              			<span class="indent1">case 1:      </span> <br>
+              				<span class="indent2">something; </span> <br>
+              				<span class="indent2">break;     </span> <br>
+              			<span class="indent1">case 2:      </span> <br>
+                      <span class="indent2">something; </span> <br>
+                      <span class="indent2">break;     </span> <br>
+              			<span class="indent1">default:     </span> <br>
+              		<span class="indent">      }         </span> <br>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="ExitJump"></a>
+                die and exit functions: <br>
+              		die(); and exit(); do same thing - kill rest of code - goes over them
+              		we can print with the functions by doing die('error') OR exit('error')
+              		we do this because <br>
+              			<span class="indent">|Ex| mysql_connect('localhost','root','') or exit('Could not connect to database') </span> <br>
+              			   <span class="indent1">echo 'Connected!'</span> <br>
+              			this will display connected! if connection successful or exits if not
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="ExpressionJump"></a>
+                expression matching: <br>
+                  preg_match <br> <br>
+
+                  $string = 'This is a string.' <br>
+                  if (preg_match('/is/', $string) ){ <br>
+                    <span class="indent">echo 'Match Found'; </span> <br>
+                  }else { <br>
+                    <span class="indent">echo 'No match found';</span> <br>
+                  } <br>
+                  NOTE:
+                    <div class="indent">
+                      The solution (which other answers don't mention—at least at the time of my originally
+                      writing this) is that when PHP refers to delimiters, it's not referring to the delimiters you
+                      see in your code (which are quote marks) but the next characters inside the string.
+                      (In fact I've never seen this stated anywhere in any documentation: you have to see it in examples.)
+                      So instead of having a regular expression syntax like what you may be accustomed to from many other
+                      languages: <br>
+                      /something/ <br>
+                      PHP uses strings, and then looks inside the string for another delimiter: <br>
+                      '/something/' <br>
+                      The delimiter PHP is referring to is the pair of / characters, instead of the pair of ' characters.
+                      So if you write 'something', PHP will take s as the intended delimiter and complain that you' `re not
+                      allowed to use alphanumeric characters as your delimiter.
+
+                      So if you want to pass (for instance) an i to show that you want a case-insensitve match, you pass
+                      it inside the string but outside of the regex delimiters: <br>
+                      '/something/i' <br>
+                      If you want to use something other than / as your delimiter, you can, such as if you're matching a
+                      URL and don't want to have to escape all the slashes: <br>
+                      '~something~'
+                    </div>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="FunctionsJump"></a>
+                -functions: <br>
+              		<span class="indent">function functionName(argument1, argument2){</span> <br>
+              			<span class="indent1">something;</span> <br>
+                    <span class="indent1">return something;</span> <br>
+              		<span class="indent">}</span> <br>
+                  <span class="indent"> to return, we do the same thing as usual</span>
+              </li>
+              <!-- ============================================================================================= -->
+              <li> <a id="GlobalJump"></a>
+                -Global variables and Functions: <br>
+                  <span class="indent">function functionName(argument1, argument2){</span> <br>
+                    <span class="indent1">something;</span> <br>
+                    <span class="indent1">return something;</span> <br>
+                  <span class="indent">}</span> <br>
+
+              </li>
+              <!-- ============================================================================================= -->
+
+            </ul>
+          </p>
+        </section>
+
+        <aside id="sidebar">
+          <p>
+            Table of Contents
+          </p>
+          <ol>
+            <li> <a href="#VariableJump">Variables</a> </li>
+            <li><a href="#EchoJump">Echo</a></li>
+            <li><a href="#PrintJump">Print</a></li>
+            <li> <a href="#HTMLJump">Html Tags in Echo/Print</a> </li>
+            <li><a href="#CommentsJump">Comments</a> </li>
+            <li><a href="ErrorJump">Error Reporting</a> </li>
+            <li><a href="#ConcatJump">Concatenation</a> </li>
+            <li><a href="#IfJump">If Statements</a> </li>
+            <li><a href="#AssignmentJump">Assignment Operator</a></li>
+            <li><a href="#ComparisonJump">Comparison Operator</a></li>
+            <li><a href="#ArithmaticJump">Arithmatic Operator</a></li>
+            <li><a href="#LogicalJump">Logical Operator</a></li>
+            <li><a href="#TripleJump">Triple Equals</a></li>
+            <li><a href="#WhileJump">While Loop</a></li>
+            <li><a href="#DoWhileJump">Do While Loop</a></li>
+            <li><a href="#ForJump">For Loop</a></li>
+            <li><a href="#SwitchJump">Switch Statement</a></li>
+            <li><a href="#ExitJump">Die/Exit Fucntions</a></li>
+            <li><a href="#ExpressionJump">Expression Matching</a></li>
+            <li><a href="#FunctionsJump">Functions</a></li>
+          </ol>
+        </aside>
+
+      </div>
+
+      <footer id="main-footer">
+        <p>Copyright &copy; My Website </p>
+      </footer>
+
+      </div>
+  </body>
+</html>
